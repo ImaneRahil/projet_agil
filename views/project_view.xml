@@ -1,0 +1,478 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+ <record id="unite_kanban_view" model="ir.ui.view">
+            <field name="name">unite Kanban</field>
+            <field name="model">unite.oeuvreee</field>
+            <field name="arch" type="xml">
+                <kanban>
+                 
+                    <field name="unite_oeuvre"/>
+                    <field name="complexite"/>
+                    <field name="charge_horaire"/>
+ 
+
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_tags_section">
+                                  
+
+                                    <strong><li>Unité:<field name="unite_oeuvre" ></field></li></strong>
+                                     <li>Complexité:<field name="complexite"></field></li>
+                                     <li>Cout:  <field name="charge_horaire"  style="background-color: #00ff00"></field></li>
+ 
+
+
+                                </div>
+                               
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+<!-- ************************************ lot__kanban***************************** -->
+
+
+
+ <record id="lot_kanban_view" model="ir.ui.view">
+            <field name="name">lot Kanban</field>
+            <field name="model">project.lot</field>
+            <field name="arch" type="xml">
+                <kanban>
+                 
+                    <field name="libele"/>
+                    <field name="image" />
+                  
+ 
+
+
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div class="oe_kanban_global_click">
+                                <div class="o_kanban_tags_section">
+                                  
+
+                                   <field name="libele"/>
+                  
+ 
+
+
+                                     <div class="o_kanban_image">
+                                    <img t-att-src="kanban_image('project.lot', 'image', record.id.value)"/>
+                                </div>
+
+                                </div>
+                               
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+
+
+    <!--   *****************************Projet_bord********************* -->
+
+    <!--   *****************************Projet_bord********************* -->
+
+ <record id="projectt_form" model="ir.ui.view">
+            <field name="name">projectt_form</field>
+            <field name="model">project.project</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                           
+                            <field name="project_ids" widget="many2many_tags"/>
+                           <!-- <field name="Ressource" />-->
+                           
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="project_paramfct_tree" model="ir.ui.view">
+            <field name="name">projectt_tree</field>
+            <field name="model">project.project</field>
+            <field name="arch" type="xml">
+                <tree>
+                     <field name="project_ids" widget="many2many_tags"/>
+                     <!--<field name="Ressource"/>-->
+                   
+
+                </tree>
+            </field>
+        </record>
+
+
+
+<!-- *********************************************************  -->
+
+    <!--   *****************************lot********************* -->
+
+ <record id="project_lot_form" model="ir.ui.view">
+            <field name="name">project_lot_form</field>
+            <field name="model">project.lot</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                           
+                          
+                          <field name="libele" string="lot" />
+                             <field name="image"  widget='image' />
+                        </group>
+
+
+
+
+                         <notebook>
+                         <page string="Lot fonctions " name="fonctions">
+                           
+                                
+                              <strong>  <group>
+                                    <p><li>fonction 1</li></p> <p><li>fonction 2</li></p> 
+                                    <p><li>fonction 3</li></p>
+                                    <p><li>fonction 4</li></p>  
+                                      <p><li>fonction 5</li></p>   
+                                </group></strong>
+                         
+                          
+                             
+                          
+                        </page>
+                    </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="project_lot_tree" model="ir.ui.view">
+            <field name="name">project_lot_tree</field>
+            <field name="model">project.lot</field>
+            <field name="arch" type="xml">
+                <tree>
+                              <field name="libele" string="lot" />
+                             <field name="image"  string="" widget='image' />
+                             
+                   
+
+                </tree>
+            </field>
+        </record>
+
+
+
+<!-- *********************************************************  -->
+
+
+
+
+
+
+    <!--   *****************************Param_fonctionels********************* -->
+
+ <record id="project_paramfct_form" model="ir.ui.view">
+            <field name="name">project_param_fct_form</field>
+            <field name="model">project.paramfct</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                           
+                            <field name="project_ids" widget="many2many_tags"/>
+                           <!-- <field name="Ressource" />-->
+                            <field name="lot" />
+                             <field name="fonctions"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="project_paramfct_tree" model="ir.ui.view">
+            <field name="name">project_paramfct_tree</field>
+            <field name="model">project.paramfct</field>
+            <field name="arch" type="xml">
+                <tree>
+                     <field name="project_ids" widget="many2many_tags"/>
+                     <!--<field name="Ressource"/>-->
+                    <field name="lot"/>
+                      <field name="fonctions"/>
+                </tree>
+            </field>
+        </record>
+
+
+
+<!-- *********************************unite_oeuvreee***********************  -->
+
+
+
+         <record id="unite_oeuvre_form" model="ir.ui.view">
+            <field name="name">unite_oeuvreee_form</field>
+            <field name="model">unite.oeuvreee</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                          
+                            <field name="unite_oeuvre"/>
+                           <!-- <field name="Ressource" />-->
+                            <field name="complexite" />
+                               <field name="charge_horaire" />
+                              <!--<field name="project_ids" widget="many2many"/>-->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="unite_oeuvreee_tree" model="ir.ui.view">
+            <field name="name">unite_oeuvreee_tree</field>
+            <field name="model">unite.oeuvreee</field>
+
+            <field name="arch" type="xml">
+                <tree>   
+                   <field name="unite_oeuvre"/>
+                           <!-- <field name="Ressource" />-->
+                            <field name="complexite" />
+                               <field name="charge_horaire" />
+                </tree>
+            </field>
+        </record>
+
+
+
+
+<!--   *****************************Profils********************* -->
+
+ <record id="project_profilee_form" model="ir.ui.view">
+            <field name="name">project_profilee_form</field>
+            <field name="model">project.profilee</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="Ressource"/>
+                           <!-- <field name="Ressource" />-->
+                            <field name="cout_horaire" sum="cout total" />
+                             <field name="color" widget="color"/>
+                              <!--<field name="project_ids" widget="many2many"/>-->
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="project_profilee_tree" model="ir.ui.view">
+            <field name="name">project_profilee_tree</field>
+            <field name="model">project.profilee</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="Ressource"/>
+                     <!--<field name="Ressource"/>-->
+                    <field name="cout_horaire" sum="cout total"/>
+                      <field name="color" widget="color"/>
+                        
+                </tree>
+
+                         
+            </field>
+
+        </record>
+
+
+<!--   ************************************************** -->
+
+
+<!--   *****************************estimation********************* -->
+
+ <record id="project_estimation_form" model="ir.ui.view">
+            <field name="name">project_estimation_form</field>
+            <field name="model">project.estimation</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                          <field name="project_ids" widget="many2many_tags" string="project"/>
+                           <field name="lot"/>
+                            <field name="fonctions" />
+                             <field name="unite_oeuvre"/>
+                            <field name="nombre" />
+                            <field name="complexite" />
+                            <field name="profil" />
+                             <field name="cout" />
+                            <field name="cout" sum="cout total" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="unite_oeuvre_tree" model="ir.ui.view">
+            <field name="name">project_estimation_tree</field>
+            <field name="model">project.estimation</field>
+            <field name="arch" type="xml">
+                <tree>
+                  
+                         <field name="project_ids" widget="many2many_tags" string="project"/>
+                            <field name="lot"/>
+                            <field name="fonctions" />
+                             <field name="unite_oeuvre"/>
+                            <field name="nombre" />
+                            <field name="complexite" />
+                            <field name="profil" />
+                            <field name="cout" />
+                  <!-- <field name="cout_total" />-->
+
+                </tree>
+             
+            </field>
+        </record>
+
+
+<!--   ************************************************** -->
+
+<!--   *****************************lots********************* -->
+
+
+<!--   ************************************************** -->
+
+
+
+
+
+        
+  <!--  ****************** tableau de bord*************** -->
+
+
+
+  <act_window id="Projectt_action"
+                    name="Tableau de Bord Projets"
+                    groups=""
+                    res_model="project.project"
+                    view_mode="tree,form"
+                    context="{}"
+                    view_type="form"/>
+
+
+        <menuitem name="Tableau de Bord Projets" id="projectt_menuitem"
+  
+
+                  parent="project_estimation_menuitem" sequence="7" action="Projectt_action"/>
+
+
+
+
+
+      
+
+<!--  ****************** project_estimation_window*************** -->
+       
+
+        <act_window id="project_estimation_action"
+                    name="Estimation_Projet"
+                    groups=""
+                    res_model="project.estimation"
+                    view_mode="tree,form"
+                    context="{}"
+                    view_type="form"/>
+
+        <menuitem name="Estimation_Projet" id="project_estimation_menuitem"
+                  sequence="5" action="project_estimation_action"/>
+
+
+
+<!--  ****************** profil_window*************** -->
+
+  <act_window id="profil_action"
+                    name="Paramétres Profil"
+                    groups=""
+                    res_model="project.profilee"
+                    view_mode="tree,form"
+                    context="{}"
+                    view_type="form"/>
+
+
+        <menuitem name="Paramétres Profil" id="project_profilee_menuitem"
+                  parent="project_estimation_menuitem" sequence="7" action="profil_action"/>
+
+  <!--  ****************** uniteoeuvre_window*************** -->
+
+
+
+  <act_window id="unite_oeuvreee_action"
+                    name="Paramétres unité d'oeuvre"
+                    groups=""
+                    res_model="unite.oeuvreee"
+                    view_mode="kanban,tree,form"
+                    context="{}"
+                    view_type="form"/>
+
+
+        <menuitem name="Paramétres unité d'oeuvre" id="unite_oeuvreee_menuitem"
+                  parent="project_estimation_menuitem" sequence="7" action="unite_oeuvreee_action"/>
+
+  <!--  ****************** paramfct*************** -->
+
+
+
+  <act_window id="ProjectParamfct_action"
+                    name="Paramétres Fonctionels"
+                    groups=""
+                    res_model="project.paramfct"
+                    view_mode="tree,form"
+                    context="{}"
+                    view_type="form"/>
+
+
+        <menuitem name="Paramétres Fonctionels" id="project_paramfct_menuitem"
+  
+
+                  parent="project_estimation_menuitem" sequence="7" action="ProjectParamfct_action"/>
+
+
+  <!--  ****************** paramfct*************** -->
+
+
+
+  <act_window id="lot_action"
+                    name="lots"
+                    groups=""
+                    res_model="project.lot"
+                    view_mode="kanban,tree,form"
+                    context="{}"
+                    view_type="form"/>
+
+
+        <menuitem name="lots Fonctionels" id="lots_menuitem"
+  
+
+                  parent="project_paramfct_menuitem" sequence="7" action="lot_action"/>
+
+
+
+       
+  <!--  ****************** paramfct*************** -->
+
+
+
+
+
+
+  <!--  ****************** paramfct*************** -->
+
+
+
+    </data>
+</openerp>
