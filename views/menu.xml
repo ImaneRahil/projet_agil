@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+
+
+<!--  ****************** profil_window*************** -->
+
+  <act_window id="profil_action"
+                    name="Paramétres Profil"
+                    groups=""
+                    res_model="project.profilee"
+                    view_mode="tree,form"
+                    context="{}"
+                    view_type="form"/>
+
+
+        <menuitem name="Paramétres Profil" id="project_profilee_menuitem"
+                  parent="project.menu_project_config" sequence="7" action="profil_action"/>
+
+
+
+   <!--  ****************** Fonctions*************** -->
+
+  <act_window id="fonction_action"
+                    name="Fonctions"
+                    groups=""
+                    res_model="project.fonctions"
+                    view_mode="tree,form"
+                    context="{}"
+                    view_type="form"/>
+
+
+        <menuitem name="Project Fonctions" id="project_fonctions_menuitem"
+                  parent="project.menu_project_config" sequence="7" action="fonction_action"/>
+
+  <!--  ****************** uniteoeuvre_window*************** -->
+
+
+
+  <act_window id="unite_oeuvreee_action"
+                    name="Unité d'oeuvre"
+                    groups=""
+                    res_model="unite.oeuvre"
+                    view_mode="tree,form"
+                    context="{}"
+                    view_type="form"/>
+
+
+        <menuitem name="unité d'oeuvre" id="unite_oeuvreee_menuitem"
+                  parent="project.menu_project_config" sequence="7" action="unite_oeuvreee_action"/>
+
+  <!--  ****************** param_estimation_projet*************** -->
+
+
+
+  <act_window id="ProjectParamfct_action"
+                    name="Paramétres estimation projet"
+                    groups=""
+                    res_model="project.paramfct"
+                    view_mode="tree,form"
+                    context="{}"
+                    view_type="form"/>
+
+
+        <menuitem name="Paramétres estimation projet" id="project_paramfct_menuitem"
+  
+
+                  parent="project.menu_project_config" sequence="7" action="ProjectParamfct_action"/>
+
+
+  <!--  ****************** LOTS*************** -->
+
+
+
+  <act_window id="lot_action"
+                    name="lots"
+                    groups=""
+                    res_model="project.lots"
+                    view_mode="kanban,tree,form"
+                    context="{}"
+                    view_type="form"/>
+
+
+        <menuitem name="lots Fonctionels" id="lots_menuitem"
+  
+
+                  parent="project.menu_project_config" sequence="7" action="lot_action"/>
+
+
+
+<!--  ****************** project_estimation_window*************** -->
+       
+
+        <act_window id="project_estimation_action"
+                    name="Estimation_Projet"
+                    groups=""
+                    res_model="project.estimation"
+                    view_mode="tree,form"
+                    context="{}"
+                    view_type="form"/>
+
+        <menuitem name="Estimation " id="project_estimation_menuitem"
+             parent="project.menu_main_pm" sequence="99" action="project_estimation_action"/>
+
+          </data>
+</openerp>

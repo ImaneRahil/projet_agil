@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+
+
+<!-- *********************************unite_oeuvreee***********************  -->
+
+
+
+         <record id="unite_oeuvre_form" model="ir.ui.view">
+            <field name="name">unite_oeuvre_form</field>
+            <field name="model">unite.oeuvre</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+
+                        <group>
+                          
+                            <field name="unite_oeuvre" />
+                            <group> <field name="complexite_ids" widget="many2many"/></group>
+
+                         <!--   <field name="cout_count" />-->
+                           
+                                             
+                        </group>
+
+                          
+                              
+                 
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="unite_oeuvreee_tree" model="ir.ui.view">
+            <field name="name">unite_oeuvreee_tree</field>
+            <field name="model">unite.oeuvre</field>
+
+            <field name="arch" type="xml">
+                <tree>   
+                  <!--  <div class="oe_button_box" name="button_box">
+ <button name="view_unite_complexite" type="object"class="oe_stat_button"  icon="fa-eye"></button>
+                   </div>-->
+
+                   <!--  <div class="oe_button_box" name="button_box">
+ <button string="view_unite_complexite" class="oe_stat_button"  icon="fa-eye"></button>
+                   </div>-->
+
+                   <field name="unite_oeuvre"/>
+
+
+                            
+
+    
+                </tree>
+            </field>
+        </record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--   *****************************complexite********************* -->
+
+ <record id="complexite_form" model="ir.ui.view">
+            <field name="name">complexite_form</field>
+            <field name="model">unite.complexite</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                           
+                            <field name="nom"/>
+
+                               <field name="coeff_complexite"/>
+                                       
+                                         <field name="nb_hr"/>
+                           
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="complexite_tree" model="ir.ui.view">
+            <field name="name">complexite_tree</field>
+            <field name="model">unite.complexite</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nom"/>
+
+                               <field name="coeff_complexite"/>
+                                 <field name="nb_hr"/>
+                                  <field name="cout_count"/>
+                              
+              
+                </tree>
+            </field>
+        </record>
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </data>
+</openerp>
