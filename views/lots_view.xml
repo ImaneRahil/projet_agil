@@ -1,147 +1,137 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
     <data>
-  <!--   *****************************lot********************* -->
-
-  <record id="project_lot_form" model="ir.ui.view">
+        <!-- *********************************lots**********************  -->
+        <record id="project_lot_form" model="ir.ui.view">
             <field name="name">project_lot_form</field>
-            <field name="model">project.lots</field>
+            <field name="model">aogp.project.lot</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
                         <group>
-                           
-                          
-                          <field name="libele" string="lot" />
-                           </group>
-
-                           <group>
-                             <field name="image"  widget='image' />  </group>
-                                 <group> <field name="fct_ids" widget="many2many"/></group>
-                      
-
-               <!--
-                         <notebook>
-
-
-                         <page string="Lot fonctions " name="fonctions">
-                           
-                                 <strong>  <group>
-                              
-                                <field name="fonction_ids"  widget="many2many"/>
-   
-                                </group></strong>
-                         
-                        </page>
-                    </notebook>
-                -->   
-                          
-                       
+                            <field invisible="1" name="name"/>
+                            <field name="lot_template_id"/>
+                           <field name="project_fonction_ids" string="Fonctions"/>
+                        </group>
                     </sheet>
                 </form>
             </field>
-        </record> 
-
-
-
-
-
-
+        </record>
         <record id="project_lot_tree" model="ir.ui.view">
             <field name="name">project_lot_tree</field>
-            <field name="model">project.lots</field>
+            <field name="model">aogp.project.lot</field>
             <field name="arch" type="xml">
                 <tree>
-                              <field name="libele" string="lot" />
-                             <field name="image"   widget='image' />
-                       <!--  <field name="fonction_ids"  widget="many2many"/>-->
-                       <!-- <div class="oe_button_box" name="button_box">
-                            <button name="view_tasks_action" type="object"
-                                    class="oe_stat_button" icon="fa-eye">
-                                <field name="task_count" string="View Tasks" widget="statinfo"/>
-                            </button>
-                        </div>-->
-
-
-
-                        
-
+                    <field invisible="1" name="name"/>
+                    <field name="lot_template_id"/>
+                    <field name="project_fonction_ids" string="Fonctions"/>
                 </tree>
             </field>
         </record>
-
-
-
-
-
-
-<!-- ************************************ lot__kanban***************************** -->
-
-
-
- <record id="lot_kanban_view" model="ir.ui.view">
-            <field name="name">lot Kanban</field>
-            <field name="model">project.lots</field>
+        <!-- *********************************lot_template***********************  -->
+        <record id="project_lot_template_form" model="ir.ui.view">
+            <field name="name">project_lot_template_form</field>
+            <field name="model">aogp.project.lot.template</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="project_fonction_ids"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="project_lot_template_tree" model="ir.ui.view">
+            <field name="name">project_lot_template_tree</field>
+            <field name="model">aogp.project.lot.template</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                    <field name="project_fonction_ids" />
+                </tree>
+            </field>
+        </record>
+        <!-- ************************************ lot__kanban***************************** -->
+        <record id="lot_kanban_view" model="ir.ui.view">
+            <field name="name">lot_kanban_view</field>
+            <field name="model">aogp.project.lot.template</field>
             <field name="arch" type="xml">
                 <kanban>
-                 
-                    <field name="libele"/>
-                    <field name="image" />
-              <templates>
+                    <field name="name"/>
+                    <templates>
                         <t t-name="kanban-box">
                             <div class="oe_kanban_global_click">
                                 <div class="o_kanban_tags_section">
-                                  
-
-                                   <field name="libele"/>
-                  
-                                     <div class="o_kanban_image">
-                                    <img t-att-src="kanban_image('project.lots', 'image', record.id.value)"/>
+                                   <strong> <field name="name"/></strong>
+                                    <!--   <img t-att-src="kanban_image('aogp.project.lot', 'image', record.id.value)"/>-->
                                 </div>
-
-                                </div>
-                               
                             </div>
                         </t>
                     </templates>
                 </kanban>
             </field>
         </record>
-
-
-    <!--   *****************************fONCTIONS********************* -->
-
- <record id="fonction_form" model="ir.ui.view">
-            <field name="name">fonction_form</field>
-            <field name="model">project.fonctions</field>
+        <!-- *********************************FONCTIONS**********************  -->
+        <record id="project_fonction_form" model="ir.ui.view">
+            <field name="name">project_fonction_form</field>
+            <field name="model">aogp.project.fonction</field>
             <field name="arch" type="xml">
                 <form>
                     <sheet>
                         <group>
-                           
-                            <field name="fonction"/>
-
-                         
-                           
+                            <field name="name"/>
+                            <!-- <field name="fonction_template_id"/>-->
+                            <field name="description" string="Description"/>
+                            <field name="project_profil_template_id" string="Profil"/>
+                            <field name="project_param_estim_template_id" string="Objet Estimé"/>
+                            <field name="charge_related_std" string="Charge Standard"/>
+                            <field name="nombre" string="Nombre"/>
+                            <field name="cout_total" string="Cout"/>
                         </group>
                     </sheet>
                 </form>
             </field>
         </record>
-
         <record id="project_fonctions_tree" model="ir.ui.view">
             <field name="name">project_fonctions_tree</field>
-            <field name="model">project.fonctions</field>
+            <field name="model">aogp.project.fonction</field>
             <field name="arch" type="xml">
-                <tree>
-                     <field name="fonction"/>
-              
-                   
-
+                <tree editable="bottom">
+                    <field name="name"/>
+                    <!-- <field name="fonction_template_id"/>-->
+                    <field name="description" string="Description"/>
+                    <field name="project_profil_template_id" string="Profil"/>
+                    <field name="project_param_estim_template_id" string="Objet Estimé"/>
+                    <field name="charge_related_std" string="Charge Standard"/>
+                    <field name="nombre" string="Nombre"/>
+                    <field name="cout_total" string="Cout" sum="cout_total"/>
                 </tree>
             </field>
         </record>
-
-
-    	    </data>
+        <!-- *********************************FONCTIONS_template***********************  -->
+        <!--  <record id="project_fonction_template_form" model="ir.ui.view">
+        <field name="name">project_fonction_template_form</field>
+                <field name="model">aogp.project.fonction.template</field>
+                <field name="arch" type="xml">
+                <form>
+                <sheet>
+                <group>
+                            <field invisible="1" name="name"/>
+                    <field name="fonction_template_id"/>
+                    <field name="description" string="Description"/>
+                    <field name="project_profil_fonction_id" string="Profil"/>
+                    <field name="project_param_estim_fonction_id" string="Objet Estimé"/>
+                    <field name="charge_related_fonction_std" string="Charge Standard"/><field name="nombre_fonction" string="Nombre"/>
+                    <field name="cout_total" string="Cout"/></group>
+                    </sheet></form></field>
+        </record>
+        <record id="project_fonction_template_tree" model="ir.ui.view">
+        <field name="name">project_fonction_template_tree</field>
+        <field name="model">aogp.project.fonction.template</field>
+        <field name="arch" type="xml"><tree><field name="name"/>
+        <field name="description"/>
+    </tree></field></record>-->
+    </data>
 </openerp>

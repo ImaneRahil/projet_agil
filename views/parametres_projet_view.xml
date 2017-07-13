@@ -1,44 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>   
-    <!--   *****************************Param_uo_complexie******************** -->
-
- <record id="project_paramfct_form" model="ir.ui.view">
-            <field name="name">project_param_fct_form</field>
-            <field name="model">project.paramfct</field>
-            <field name="arch" type="xml">
-                <form>
-                    
-                    <sheet>
-<header> <div> <button string="Assistance de calcul" type="object" name="execute" class="oe_highlight"/></div></header>
-                        <group>
-                           
-                            <field name="project_id" />
-                            
-                            <field name="unite_ids" widget="many2many"/>
-                            
-                         
-                        <!--   <field name="ct_unite" />-->
-                         
-                        </group>
-                    </sheet>
-                </form>
-            </field>
-        </record>
-
-        <record id="project_paramfct_tree" model="ir.ui.view">
-            <field name="name">project_paramfct_tree</field>
-            <field name="model">project.paramfct</field>
-            <field name="arch" type="xml">
-            
-              
-                   <tree >
-                         <field name="project_id" />
-                    
-                                  <!--<field name="ct_unite" />-->
-                </tree>  
-            </field>
-        </record> 
-
+  <data>
+    <!--   *****************************Param_uo_complexie_estim******************** -->
+    <record id="project_parametres_form" model="ir.ui.view">
+      <field name="name">project_parametres_form</field>
+      <field name="model">aogp.project.param.estim</field>
+      <field name="arch" type="xml">
+        <form>
+          <sheet>
+            <group>
+              <field name="unite_oeuvre_id"/>
+              <field name="complexite_id"/>
+              <field name="charge_std"/>
+            </group>
+          </sheet>
+        </form>
+      </field>
+    </record>
+    <record id="project_paramfct_tree" model="ir.ui.view">
+      <field name="name">project_paramfct_tree</field>
+      <field name="model">aogp.project.param.estim</field>
+      <field name="arch" type="xml">
+        <tree>
+          <field name="unite_oeuvre_id"/>
+          <field name="complexite_id"/>
+          <field name="charge_std"/>
+        </tree>
+      </field>
+    </record>
   </data>
 </openerp>

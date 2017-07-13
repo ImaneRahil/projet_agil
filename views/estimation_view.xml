@@ -1,98 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
-        <!--   *****************************estimation********************* -->
-
- <record id="project_estimation_form" model="ir.ui.view">
-            <field name="name">project_estimation_form</field>
-            <field name="model">project.estimation</field>
-            <field name="arch" type="xml">
-                <form>
-
-                    <sheet>
-                        <group >
-
-
-                          <field name="project_ids" widget="many2many_tags" string="project"/>
-                          <!-- <field name="lots_ids" widget="many2many_tags" string="lots"/>-->
-                       
-                            <field name="lot"/><field name="fct_ids" widget="many2many"/> 
-                       
-
-                            
-
-
-                     
-                                         
-                   
-                             <field name="cout" />
-                          <!--  <group >
-                       <notebook groups="base.group_no_one"><page string="unité d'oeuvre">
-                         
-                       <div> <button string="Calculer cout unité d'oeuvre" type="object" name="execute" class="oe_highlight"/></div></page>
-
-                         <page string="profil"> <div>
-                        <button string="Calculer cout profil" type="object" name="cancel" class="oe_highlight"/>
-                  </div>
-                         </page></notebook>  
-                          
-                         <div>         
-           <stong>   <button string="Calculer cout unité d'oeuvre" type="object" name="Log_In"/></stong>
-
-                          
-                     </div>
-                       <div>         
-              <button string="Calculer cout profil" type="object" name="Log_In"/>
-                          
-                     </div>
  
-                        </group> -->
-                   
-                      <group class="oe_subtotal_footer" col="4">
-    <field name="lot"/>
+  <data>
+     <!--
+    <record id="project_estimation_tree" model="ir.ui.view">
 
-    <field name="cout" class="oe_subtotal_footer_separator"/>
-    <field name="cout" style="margin-top: 10px"/>
-</group> </group></sheet>
-                </form>
-            </field>
-        </record>
+      <field name="name">project_estimation_tree</field>
+      <field name="model">aogp.project.estimation</field>
+      <field name="arch" type="xml">
+        <tree editable="bottom">
 
-        <record id="unite_oeuvre_tree" model="ir.ui.view">
-            <field name="name">project_estimation_tree</field>
-            <field name="model">project.estimation</field>
-            <field name="arch" type="xml">
-             
-
-         
-               
-                <tree >
-                    
-                            <button name="toggle_active" type="object" groups="hr.group_hr_user" class="oe_stat_button" icon="fa-archive">
-                                
-                            </button>
-                    
+          <field name="project_lot_id" string="lot" />
+          <field name="project_fonction_id" string="Fonction" domain="[('project_fonction_id','=', project_lot_id )]"/>
+          <field name="project_profil_id" string="Profil" />
+          <field name="project_param_estim_id" string="Parametres estimation"/>
+          <field name="charge_related_std" string="Charge Standard"/>
+          <field name="nombre"/>
+          <field name="cout_total" sum="Cout Total : "/>
+        </tree>
+      </field>
+    </record>-->
 
 
-                        <!-- <field name="lots_ids" widget="many2many_tags" string="lots"/>   -->
-                         <field name="lot" />
-                         
-                        <!--    <field name="unite_oeuvre"/><button string="Calculer cout unité d'oeuvre" type="object" name="execute" class="oe_highlight"/>
-                         
-                          <button string="Calculer cout profil" type="object" name="cancel" class="oe_highlight">
-                         
-                           </button>
-                        
-                            <field name="cout" sum="cout total" />-->
 
 
-                  <!-- <field name="cout_total" />-->
-
-                </tree>
-             
-            </field>
-        </record>
 
 
-    </data>
+
+    <!--<record id="project_estimation_template_tree" model="ir.ui.view">
+
+      <field name="name">project_estimation_template_tree</field>
+      <field name="model">aogp.project.estimation.template</field>
+      <field name="arch" type="xml">
+        <tree editable="bottom">
+
+          <field name="project_lot_template_id" string="lot" />
+       <field name="project_fonction_id" string="Fonction"/>
+          <field name="project_profil_template_id" string="Profil" />
+          <field name="project_param_estim_template_id" string="Parametres estimation"/>
+          <field name="charge_related_std" string="Charge Standard"/>
+          <field name="nombre"/>
+          <field name="cout_total" sum="Cout Total : "/>
+        </tree>
+      </field>
+    </record>-->
+  </data>
 </openerp>

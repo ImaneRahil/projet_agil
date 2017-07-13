@@ -1,108 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data>
+  <data>
 
 
 
-
-<!--  ****************** profil_window*************** -->
-
-  <act_window id="profil_action"
-                    name="Paramétres Profil"
-                    groups=""
-                    res_model="project.profilee"
-                    view_mode="tree,form"
-                    context="{}"
-                    view_type="form"/>
-
-
-        <menuitem name="Paramétres Profil" id="project_profilee_menuitem"
-                  parent="project.menu_project_config" sequence="7" action="profil_action"/>
+    <!--  ******************configuration estimation*************************************************** -->
+    <menuitem action="" id="configuration_estimation_menuitem" name="Estimation Configuration " parent="project.menu_project_config" sequence="99"/>
+    
+    <!--  ****************** uniteoeuvre_window************************************************** -->
+    <act_window context="{}" groups="" id="unite_oeuvreee_action" name="Paramètres Unité d'Oeuvre" res_model="aogp.unite.oeuvre.template" view_mode="tree,form" view_type="form"/>
+    <menuitem action="unite_oeuvreee_action" id="unite_oeuvreee_menuitem" name="Paramètres Unité d'Oeuvre" parent="configuration_estimation_menuitem" sequence="7"/>
 
 
 
-   <!--  ****************** Fonctions*************** -->
+    <!--  ****************** complexite*********************************************************** -->
+    <act_window context="{}" groups="" id="complexite_template_action" name="Paramètres Complexités" res_model="aogp.complexite.template" view_mode="tree,form" view_type="form"/>
 
-  <act_window id="fonction_action"
-                    name="Fonctions"
-                    groups=""
-                    res_model="project.fonctions"
-                    view_mode="tree,form"
-                    context="{}"
-                    view_type="form"/>
+    <menuitem action="complexite_template_action" id="complexite_menuitem" name="Paramètres Complexités" parent="configuration_estimation_menuitem" sequence="7"/>
 
 
-        <menuitem name="Project Fonctions" id="project_fonctions_menuitem"
-                  parent="project.menu_project_config" sequence="7" action="fonction_action"/>
+ <!--  *************parametres estimation standard***************************** -->
+  <act_window context="{}" groups="" id="parametre_template_action" name="Paramètres Estimation standard" res_model="aogp.project.param.estim.template" view_mode="tree,form" view_type="form"/>
 
-  <!--  ****************** uniteoeuvre_window*************** -->
+    <menuitem action="parametre_template_action" id="parametre_template_menuitem" name="Paramètres Estimation standard" parent="configuration_estimation_menuitem" sequence="7"/>
 
 
 
-  <act_window id="unite_oeuvreee_action"
-                    name="Unité d'oeuvre"
-                    groups=""
-                    res_model="unite.oeuvre"
-                    view_mode="tree,form"
-                    context="{}"
-                    view_type="form"/>
-
-
-        <menuitem name="unité d'oeuvre" id="unite_oeuvreee_menuitem"
-                  parent="project.menu_project_config" sequence="7" action="unite_oeuvreee_action"/>
-
-  <!--  ****************** param_estimation_projet*************** -->
-
-
-
-  <act_window id="ProjectParamfct_action"
-                    name="Paramétres estimation projet"
-                    groups=""
-                    res_model="project.paramfct"
-                    view_mode="tree,form"
-                    context="{}"
-                    view_type="form"/>
-
-
-        <menuitem name="Paramétres estimation projet" id="project_paramfct_menuitem"
+    <!--  ****************** profil_window**************************************************************** -->
+    <act_window context="{}" groups="" id="profil_template_action" name="Paramétres Profil" res_model="aogp.project.profil.template" view_mode="tree,form" view_type="form"/>
+    <menuitem action="profil_template_action" id="project_profilee_menuitem" name="Paramétres Profil" parent="configuration_estimation_menuitem" sequence="7"/>
+    
   
-
-                  parent="project.menu_project_config" sequence="7" action="ProjectParamfct_action"/>
-
-
-  <!--  ****************** LOTS*************** -->
-
-
-
-  <act_window id="lot_action"
-                    name="lots"
-                    groups=""
-                    res_model="project.lots"
-                    view_mode="kanban,tree,form"
-                    context="{}"
-                    view_type="form"/>
-
-
-        <menuitem name="lots Fonctionels" id="lots_menuitem"
+ 
+    
+    <!--  ****************** LOTS************************************************************* -->
+    <act_window context="{}" groups="" id="lot_action" name="Lots" res_model="aogp.project.lot.template" view_mode="kanban,tree,form" view_type="form"/>
+    <menuitem action="lot_action" id="lots_menuitem" name="Lots Fonctionels" parent="configuration_estimation_menuitem" sequence="7"/>
   
+   
 
-                  parent="project.menu_project_config" sequence="7" action="lot_action"/>
-
-
-
-<!--  ****************** project_estimation_window*************** -->
-       
-
-        <act_window id="project_estimation_action"
-                    name="Estimation_Projet"
-                    groups=""
-                    res_model="project.estimation"
-                    view_mode="tree,form"
-                    context="{}"
-                    view_type="form"/>
-
-        <menuitem name="Estimation " id="project_estimation_menuitem"
-             parent="project.menu_main_pm" sequence="99" action="project_estimation_action"/>
-
-          </data>
+  </data>
 </openerp>

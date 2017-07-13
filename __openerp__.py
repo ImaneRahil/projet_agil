@@ -1,5 +1,3 @@
-
-
 {
     'name': 'Project - Agil',
     'category': "Project",
@@ -12,16 +10,18 @@
         """,
     'author': 'imane',
     'depends': ['project'],
-    'depends': ['account'],
+    
+    
     'data': [
         'views/project_view.xml',
         'views/unite_view.xml',
         'views/lots_view.xml',
         'views/menu.xml',
-	    'views/exemple_report.xml',
         'views/estimation_view.xml',
         'views/parametres_projet_view.xml',
         'security/ir.model.access.csv',
+        'report/report_estimation.xml',
+        'report/report_estimation_template.xml',
     ],
     'qweb': [],
     'images': [
