@@ -1,5 +1,6 @@
 
-from . import project
+from . import taches_msa
+
 
 
 
